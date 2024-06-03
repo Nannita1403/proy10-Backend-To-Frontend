@@ -1,5 +1,5 @@
-const artistRouter = require("./artist");
-const eventRouter = require("./event");
+const artistRouter = require("./artists");
+const eventRouter = require("./events");
 const userRouter = require("./user");
 
 const mainRouter = require ("express").Router();

@@ -1,4 +1,4 @@
-const Artist = require("../models/artist");
+const Artist = require("../models/artists");
 
 const postArtist = async (req,res,next) => {
     try {
