@@ -1,4 +1,4 @@
-const Event = require("../api/models/event");
+const Event = require("../api/models/events");
 const User = require("../api/models/user");
 const { verificarLlave } = require("../utils/jwt");
 
