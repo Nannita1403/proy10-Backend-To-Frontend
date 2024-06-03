@@ -1,4 +1,7 @@
 const Artist = require("../models/artists");
+const Event = require("../models/events");
+
+
 
 const postArtist = async (req,res,next) => {
     try {
@@ -81,7 +84,7 @@ const updateArtist = async (req,res,next) => {
     newArtist.img = [...existingArtist.img, ...newArtist.img];*/
     
     const updateArtist = await Artist.findByIdAndUpdate(id, newArtist, {new:true});
-    return res.status(200).json({updateArtist});
+    return res.status(200).json({message:"Artista actualizado", event: updateArtist});
     } catch (error) {
         return res.status(400).json("Error en el Update del Artista");
     }
@@ -90,8 +93,16 @@ const updateArtist = async (req,res,next) => {
 const deleteArtist = async (req,res,next) => {
     try {
         const {id} = req.params;
+        const events = await Event.find({ artist: { $in: id } });
+
+        for (const event of events) {
+            const indexof = event.artist.indexOf(id);
+            const eventUpdate = event;
+            eventUpdate.artist.splice(indexof,1);
+            await Event.findByIdAndUpdate(event._id, eventUpdate);
+                }
         const artistDeleted = await Artist.findByIdAndDelete(id);
-        return res.status(200).json(artistDeleted);
+        return res.status(200).json({message:"Artista Eliminado", event: artistDeleted});
     } catch (error) {
         return res.status(400).json("error en la eliminación del Juego");
     }
