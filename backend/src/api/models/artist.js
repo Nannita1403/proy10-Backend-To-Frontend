@@ -11,8 +11,7 @@ const artistSchema = new mongoose.Schema({
             "reggae", 
             "metal"
         ],
-    },
-     verified: {type:Boolean, require:true, default:false}
+    }
 }, {
     timestamps: true,
     collection: "artists"

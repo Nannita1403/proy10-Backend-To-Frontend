@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema( {
     userName: { type: String, required: true },
     password: { type: String, required: true },
+    email: {type:String, require:true },
     profilePic: { type: String, require: false },
     favArtist: [ { type: mongoose.Types.ObjectId, ref: "artists", require: false } ],
     events: [ { type: mongoose.Types.ObjectId, ref: "events", require: false } ],
