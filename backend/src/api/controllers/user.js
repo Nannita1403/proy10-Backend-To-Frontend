@@ -26,14 +26,20 @@ const register = async (req,res,next) => {
         if (userDuplicated) {
           return res.status(400).json("Usuario ya existente");
         }
-    
+        const emailDuplicated = await User.findOne({ email: req.body.email });
+        if (emailDuplicated) {
+          return res.status(400).json("Usuario ya existente cone se correo");
+        }
+        
         const newUser = new User({
             userName: req.body.userName,
             password: req.body.password,
+            email:req.body.email,
             rol: "user"
         });
-        const user = await newUser.save();
-        return res.status(201).json(user);
+        
+        const savedUser = await newUser.save();
+        return res.status(201).json(savedUser);
     } catch (error) {
         return res.status(400).json("Error en la creación del User");
     }

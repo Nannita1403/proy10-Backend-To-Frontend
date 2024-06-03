@@ -1,18 +1,13 @@
 const Artist = require("../models/artists");
 const Event = require("../models/events");
 
-
-
 const postArtist = async (req,res,next) => {
     try {
         const existingArtist = await Artist.findOne({
             nombre: req.body.nombre,
           });
           if (existingArtist) {
-            return res
-            
-              .status(400)
-              .json(`${existingArtist.nombre} ya está en la BBDD.`);
+            return res.status(400).json(`${existingArtist.nombre} ya está en la BBDD.`);
           }
           const newArtist = new Artist(req.body);
           if (req.files) {
@@ -29,8 +24,8 @@ const postArtist = async (req,res,next) => {
 
 const getArtists = async (req,res,next) => {
     try {
-        const artists = await Artist.find();
-        return res.status(200).json(artists);
+        const allArtists = await Artist.find();
+        return res.status(200).json(allArtists);
     } catch (error) {
         return res.status(400).json("Error en la busqueda de Artistas");
     }
@@ -38,8 +33,8 @@ const getArtists = async (req,res,next) => {
 
 const getArtistbyID = async (req,res,next) => {
     try {
-        const {id} = req.params;
-        const artist = await Artist.findById(id);
+        const {artistID} = req.params;
+        const artist = await Artist.findById(artistID);
         return res.status(200).json(artist);
     } catch (error) {
         return res.status(400).json("Error en la busqueda por ID");
@@ -49,8 +44,10 @@ const getArtistbyID = async (req,res,next) => {
 const getArtistbyNombre = async (req,res,next) => {
     try {
         const { nombre } = req.params;
-        const artist = await Artist.findOne({nombre});
-        return res.status(200).json(artist);
+        const artistByName = await Artist.findOne({nombre});
+        artistByName
+        ? res.status(200).json(artistByName)
+        : res.status(404).json("Artista no encontrado");
     } catch (error) {
         return res.status(400).json("Error en la busqueda por Nombre");
     }
@@ -59,8 +56,10 @@ const getArtistbyNombre = async (req,res,next) => {
 const getArtistByCategory = async (req,res,next) => {
     try {
         const {category}= req.params;
-        const artist = await Artist.find({category:category});
-        return res.status(200).json(artist);
+        const artistByCategory = await Artist.find({category:category});
+        artistByCategory
+        ? res.status(200).json(artistByCategory)
+        : res.status(404).json("Categoria no encontrada");
      } catch (error) {
         return res.status(400).json("Error en la busqueda por Category");
      }
@@ -75,13 +74,12 @@ const updateArtist = async (req,res,next) => {
         
         const newArtist = new Artist (req.body);
         newArtist._id = id;
-/*
         if (req.files) {
             for (const img of req.files) {
                 newArtist.img.push(img.path);
             }
         };
-    newArtist.img = [...existingArtist.img, ...newArtist.img];*/
+    newArtist.img = [...existingArtist.img, ...newArtist.img];
     
     const updateArtist = await Artist.findByIdAndUpdate(id, newArtist, {new:true});
     return res.status(200).json({message:"Artista actualizado", event: updateArtist});
@@ -93,15 +91,11 @@ const updateArtist = async (req,res,next) => {
 const deleteArtist = async (req,res,next) => {
     try {
         const {id} = req.params;
-        const events = await Event.find({ artist: { $in: id } });
-
-        for (const event of events) {
-            const indexof = event.artist.indexOf(id);
-            const eventUpdate = event;
-            eventUpdate.artist.splice(indexof,1);
-            await Event.findByIdAndUpdate(event._id, eventUpdate);
-                }
         const artistDeleted = await Artist.findByIdAndDelete(id);
+        artistDeleted.img.forEach((url)=>{
+            deleteFromCloudinary(url);
+        });
+        
         return res.status(200).json({message:"Artista Eliminado", event: artistDeleted});
     } catch (error) {
         return res.status(400).json("error en la eliminación del Juego");

@@ -7,7 +7,7 @@ eventRouter.post("/",isOrganizer, isAdmin, postEvent);
 eventRouter.get("/", getEvents);
 eventRouter.get("/:eventID",isAuth, getEventbyID);
 eventRouter.get("/price/:price",isAuth, getEventbyPrice);
-eventRouter.get("/:assistant",isAdmin, isOrganizer, getEventbyAssistant);
+eventRouter.get("/:assistants",isAdmin, isOrganizer, getEventbyAssistant);
 eventRouter.get("/artist/:artist", getEventbyArtist);
 eventRouter.get("/location/:location", getEventbyLocation);
 eventRouter.put("/:eventId",isOrganizer, isAdmin, updateEvent);
