@@ -3,16 +3,16 @@ const { getEvents, getEventbyID, getEventbyArtist, getEventbyAssistant, getEvent
 
 const eventRouter = require("express").Router();
 
-eventRouter.post("/",(isOrganizer, isAdmin), postEvent);
+eventRouter.post("/",isOrganizer, isAdmin, postEvent);
 eventRouter.get("/", getEvents);
-eventRouter.get("/:eventID",(isAuth), getEventbyID);
-eventRouter.get("/price/:price",(isAuth), getEventbyPrice);
-eventRouter.get("/:id",(isAdmin, isOrganizer), getEventbyAssistant);
+eventRouter.get("/:eventID",isAuth, getEventbyID);
+eventRouter.get("/price/:price",isAuth, getEventbyPrice);
+eventRouter.get("/:assistant",isAdmin, isOrganizer, getEventbyAssistant);
 eventRouter.get("/artist/:artist", getEventbyArtist);
 eventRouter.get("/location/:location", getEventbyLocation);
-eventRouter.put("/:eventId",(isOrganizer, isAdmin), updateEvent);
-eventRouter.put("/:eventId/removeAssistant",(isOrganizer, isAdmin), deleteAssistant);
-eventRouter.delete("/:id",(isAdmin, isOrganizer), deleteEvent);
+eventRouter.put("/:eventId",isOrganizer, isAdmin, updateEvent);
+eventRouter.put("/:eventId/removeAssistant",isOrganizer, isAdmin, deleteAssistant);
+eventRouter.delete("/:id",isAdmin, isOrganizer, deleteEvent);
 
 module.exports = eventRouter;
 

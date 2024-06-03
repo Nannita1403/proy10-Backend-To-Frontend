@@ -3,12 +3,12 @@ const { getUsers, getUserbyID, register, updateUser, login, deleteUser } = requi
 
 const userRouter = require("express").Router();
 
-userRouter.get("/", (isAdmin), getUsers);
-userRouter.get("/:id",(isAdmin), getUserbyID);
+userRouter.get("/", isAdmin, getUsers);
+userRouter.get("/:id",isAdmin, getUserbyID);
 userRouter.post("/register", register);
 userRouter.post("/login", login);
-userRouter.put("/:id",(isAdmin,isAuth), updateUser);
-userRouter.delete("/:id",(isAdmin,isAuth), deleteUser)
+userRouter.put("/:id",isAdmin,isAuth, updateUser);
+userRouter.delete("/:id",isAdmin,isAuth, deleteUser)
 
 
 module.exports = userRouter;
