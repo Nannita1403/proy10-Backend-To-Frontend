@@ -3,15 +3,8 @@ const mongoose = require("mongoose");
 const artistSchema = new mongoose.Schema({
     nombre: {type: String, require: true },
     img: {type: String, require: true },
-    category: {
-        type:String, require: true, 
-        enum: [
-            "pop", 
-            "rock", 
-            "reggae", 
-            "metal"
-        ],
-    }
+    description: {type: String, require: true },
+    events: { type: mongoose.Types.ObjectId, ref: "events" }
 }, {
     timestamps: true,
     collection: "artists"

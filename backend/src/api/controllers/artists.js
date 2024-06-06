@@ -53,18 +53,6 @@ const getArtistbyNombre = async (req,res,next) => {
     }
 };
 
-const getArtistByCategory = async (req,res,next) => {
-    try {
-        const {category}= req.params;
-        const artistByCategory = await Artist.find({category:category});
-        artistByCategory
-        ? res.status(200).json(artistByCategory)
-        : res.status(404).json("Categoria no encontrada");
-     } catch (error) {
-        return res.status(400).json("Error en la busqueda por Category");
-     }
-};
-
 const updateArtist = async (req,res,next) => {
     try {
         const {id} = req.params;
@@ -103,5 +91,5 @@ const deleteArtist = async (req,res,next) => {
 };
 
 module.exports = {
-    getArtists, getArtistbyID, getArtistbyNombre, getArtistByCategory, postArtist, updateArtist, deleteArtist
+    getArtists, getArtistbyID, getArtistbyNombre, postArtist, updateArtist, deleteArtist
 }

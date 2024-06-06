@@ -25,6 +25,7 @@ GET - getEventbyID - /events/:eventId - isAuth
 GET - getEventbyPrice - /events/price/:price 
 GET - getEventbyAssistant - /events/:id/:assistants - isAdmin - isOrganizer 
 GET - getEventbyArtist - /events/artist/:artist 
+GET - getEventByCategory - /events/category/:category
 GET - getEventbyLocation - /events/location/:location 
 POST - postEvent - /events/ - isAdmin - isOrganizer
 PUT - deleteAssistant - /events/:id/removeAssistant - isAdmin - isOrganizer
@@ -36,7 +37,6 @@ DELETE - deleteEvent - /events/:id - isAdmin - isOrganizer
 GET - getArtists - /artist/
 GET - getArtistbyID - /artist/:artistID
 GET - getArtistbyNombre - /artist/nombre/:nombre
-GET - getArtistByCategory - /artist/category/:category
 POST - postArtist - /artist/ - isAdmin - isOrganizer 
 PUT - updateArtist - /artist/:id - isAdmin - isOrganizer 
 POST - deleteArtist - /artist/:id - isAdmin

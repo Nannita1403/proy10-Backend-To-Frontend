@@ -6,7 +6,6 @@ const artistRouter = require("express").Router();
 artistRouter.get("/", getArtists);
 artistRouter.get("/:artistID", getArtistbyID);
 artistRouter.get("/nombre/:nombre", getArtistbyNombre);
-artistRouter.get("/category/:category", getArtistByCategory);
 artistRouter.post("/", isOrganizer, isAdmin, postArtist);
 artistRouter.put("/:id", isOrganizer, isAdmin, updateArtist);
 artistRouter.delete("/:id",isAdmin, deleteArtist);

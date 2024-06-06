@@ -74,6 +74,17 @@ const getEventbyArtist = async (req,res,next) => {
         return res.status(400).json("Error en la busqueda por Artista");
      }
 };
+const getEventByCategory = async (req,res,next) => {
+  try {
+      const {category}= req.params;
+      const eventByCategory = await Event.find({category:category});
+      eventByCategory
+      ? res.status(200).json(eventByCategory)
+      : res.status(404).json("Categoria no encontrada");
+   } catch (error) {
+      return res.status(400).json("Error en la busqueda por Categoria");
+   }
+};
 const getEventbyLocation = async (req,res,next) => {
     try {
         const {location}= req.params;
@@ -152,4 +163,4 @@ const deleteEvent = async (req,res,next) => {
         return res.status(400).json("error")}
     };
 
-    module.exports = { postEvent, getEvents, getEventbyID, getEventbyArtist, getEventbyPrice, getEventbyAssistant, getEventbyLocation,  updateEvent, deleteAssistant, deleteEvent }
+    module.exports = { postEvent, getEvents, getEventbyID, getEventbyArtist, getEventbyPrice, getEventbyAssistant, getEventbyLocation, getEventByCategory, updateEvent, deleteAssistant, deleteEvent }
