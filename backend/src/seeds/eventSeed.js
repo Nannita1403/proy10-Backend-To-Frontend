@@ -40,7 +40,7 @@ const springEvents = [
       img:"https://www.culturacv.com/wp-content/uploads/2023/04/Festival-de-FIB-Benicassim-en-Benicassim-Castellon-2023.jpg",
     },
     {
-      name: 'Cruïlla',
+      name: 'Cruilla',
       date: '2024-07-03',
       location: 'Barcelona',
       price: 152,

@@ -4,7 +4,7 @@ const Event = require("../models/events");
 const postArtist = async (req,res,next) => {
     try {
         const existingArtist = await Artist.findOne({
-            nombre: req.body.nombre,
+            name: req.body.nombre,
           });
           if (existingArtist) {
             return res.status(400).json(`${existingArtist.nombre} ya está en la BBDD.`);
@@ -43,8 +43,8 @@ const getArtistbyID = async (req,res,next) => {
 
 const getArtistbyNombre = async (req,res,next) => {
     try {
-        const { nombre } = req.params;
-        const artistByName = await Artist.findOne({nombre});
+        const { name } = req.params;
+        const artistByName = await Artist.findOne({name});
         artistByName
         ? res.status(200).json(artistByName)
         : res.status(404).json("Artista no encontrado");
