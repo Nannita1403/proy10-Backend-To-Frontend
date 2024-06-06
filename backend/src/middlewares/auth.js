@@ -18,7 +18,7 @@ const isAuth = (req,res,next) => {
 
 const isAdmin = async (req,res,next) =>{
 try {
-    req.user.rol === "Admin"
+    req.user.rol === "admin"
     ?(req.user.isAdmin=true)
     :(req.user.isAdmin=false);
     next();
