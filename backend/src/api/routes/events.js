@@ -11,7 +11,7 @@ eventRouter.get("/:assistants",isAdmin, isOrganizer, getEventbyAssistant);
 eventRouter.get("/artist/:artist", getEventbyArtist);
 eventRouter.get("/category/:category", getEventByCategory);
 eventRouter.get("/location/:location", getEventbyLocation);
-eventRouter.put("/:id",isOrganizer, isAdmin, updateEvent);
+eventRouter.put("/:id",isAdmin,isOrganizer, updateEvent);
 eventRouter.put("/:id/removeAssistant",isOrganizer, isAdmin, deleteAssistant);
 eventRouter.delete("/:id",isAdmin, isOrganizer, deleteEvent);
 
