@@ -8,7 +8,7 @@ const isAuth = async (req,res,next) => {
             return res.status(404).json('Unauthorized');
           }
 
-        const parseToken = token.replace("Beare ", "");
+        const parseToken = token.replace("Bearer", "");
         const {id} = verificarLlave(parseToken);
 
         const user = await User.findById(id);
