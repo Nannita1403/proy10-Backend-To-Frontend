@@ -40,7 +40,7 @@ try {
 }
 }
 
-/*const isOrganizer = async (req,res,next) =>{
+const isOrganizer = async (req,res,next) =>{
 try {
     req.user.isOrganizer = false;
     const eventId = req.params.id;
@@ -52,6 +52,6 @@ try {
     next();
 } catch (error) {
     next(error);}
-};*/
+};
 
-module.exports ={isAuth, isAdmin};
+module.exports ={isAuth, isAdmin, isOrganizer};
