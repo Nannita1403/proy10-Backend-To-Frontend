@@ -31,7 +31,7 @@ try {
         return res.status(400).json("No eres Admin")
     }
 } catch (error) {
-    return res.status(400).json("No estás autorizado");
+    return res.status(400).json("No estás autorizado", error);
 }
 }
 
