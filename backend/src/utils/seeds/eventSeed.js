@@ -7,7 +7,7 @@ const springEvents = [
         description:
           'El Primavera Sound es un festival de música que se celebra anualmente en Barcelona, España. Ofrece una amplia gama de estilos musicales, desde rock y pop hasta electrónica y hip hop.',
         category: 'Mix',
-        img: "https://www.tiempo.es/build/img/specials/festivales-de-musica/primaverasound/logo.jpg",
+        img: "https://www.tiempo.es/build/img/specials/festivales-de-musica/primaverasound/logo.jpg"
     },
     {
       name: 'Mad Cool',

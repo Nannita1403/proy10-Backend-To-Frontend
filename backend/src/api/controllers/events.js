@@ -20,9 +20,9 @@ const postEvent = async (req,res,next) => {
                 });
               } 
             //La persona que crea el evento queda registrada como organizador.
-            newEvent.organizer = req.user._id;
+            newEvent.organizer = req.user.id;
             const savedEvent = await newEvent.save();
-            const populatedEvent = await Event.findById(savedEvent._id).populate("artists");
+            const populatedEvent = await Event.findById(savedEvent.id).populate("artists");
             return res.status(201).json({ message:"Evento creado correctamente", event: populatedEvent });          
     } catch (error) {
         return res.status(400).json(console.log(error));
