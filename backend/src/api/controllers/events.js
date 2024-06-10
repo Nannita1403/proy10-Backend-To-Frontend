@@ -38,8 +38,8 @@ const getEvents = async (req,res,next) => {
 };
 const getEventbyID = async (req,res,next) => {
     try {
-        const {eventID} =req.params;
-        const event = await Event.findById(eventID).populate("artists", "users");
+        const {id} =req.params;
+        const event = await Event.findById(id).populate("artists", "users");
         return res.status(200).json(event);
     } catch (error) {
         return res.status(400).json("error en la busqueda por Id");
@@ -127,14 +127,14 @@ const updateEvent = async (req,res,next) => {
       };
 const deleteAssistant = async (req,res,next) => {
     try {
-        const { eventId } = req.params;
-        const event = await Event.findById(eventId);
+        const { id } = req.params;
+        const event = await Event.findById(id);
         const newAssistantList = event.assistants.slice();
         newAssistantList.splice(event.assistants.indexOf(req.user._id), 1);
         console.log('lista nueva:', newAssistantList);
         console.log('lista vieja', event.assistants);
         const updatedEvent = await Event.findByIdAndUpdate(
-          eventId,
+          id,
           { assistants: newAssistantList },
           { new: true }
         );
