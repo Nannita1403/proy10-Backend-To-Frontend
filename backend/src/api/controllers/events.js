@@ -1,4 +1,4 @@
-const { isOrganizer } = require("../../middlewares/auth");
+//const { isOrganizer } = require("../../middlewares/auth");
 const deleteFromCloudinary = require("../../utils/deleteFiles");
 const Event = require("../models/events");
 
@@ -113,13 +113,12 @@ const updateEvent = async (req,res,next) => {
             }
            };
 
-           if(!isOrganizer) {
             newEvent.organizer = oldEvent.organizer;
-           }
+           
     
           const eventUpdate = await Event.findByIdAndUpdate(id, newEvent, {
             new: true,
-          }.populate("artists","users", "organizer"));
+          }.populate("artists","users"));
           return res.status(200).json({mensaje:"Evento Actualizado", event:eventUpdate});
         } catch (error) {
           return res.status(400).json(error);
@@ -146,7 +145,7 @@ const deleteAssistant = async (req,res,next) => {
     };
 const deleteEvent = async (req,res,next) => {
     try {
-        if (req.user.isAdmin || req.user.isOrganizer) {
+        if (req.user.isAdmin) {
         const { id } = req.params;
         const deletedEvent = await Event.findByIdAndDelete(id);
         deletedEvent.img.forEach((url)=>{
