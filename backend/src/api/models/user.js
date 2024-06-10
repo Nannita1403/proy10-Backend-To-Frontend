@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema( {
     profilePic: { type: String, require: false },
     favArtist: [ { type: mongoose.Types.ObjectId, ref: "artists", require: false } ],
     events: [ { type: mongoose.Types.ObjectId, ref: "events", require: false } ],
-    rol: { 
+    role: { 
       type: String,
       default: "user",
       enum: ["user", "admin"],

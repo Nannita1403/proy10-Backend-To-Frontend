@@ -35,7 +35,7 @@ const register = async (req,res,next) => {
             userName: req.body.userName,
             password: req.body.password,
             email:req.body.email,
-            rol: "user"
+            role: "user"
         });
         
         const savedUser = await newUser.save();
@@ -69,9 +69,9 @@ const updateUser = async (req,res,next) => {
         const { id } = req.params;
         const newUser = new User(req.body);
 
-        newUser.rol = "user";
-        if (req.user.rol === "admin") {
-            newUser.rol = req.body.rol;
+        newUser.role = "user";
+        if (req.user.role === "admin") {
+            newUser.role = req.body.role;
         }
 
         const oldUser = await User.findById(id);

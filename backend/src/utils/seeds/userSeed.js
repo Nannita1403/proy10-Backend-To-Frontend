@@ -3,36 +3,36 @@ const registeredUsers = [
       userName: 'admin',
       email: 'admin@gmail.com',
       password: 'admin123',
-      rol: 'admin'
+      role: 'admin'
       },{
       userName: 'Nanni',
       email: 'nanni123@gmail.com',
       password: 'nanni123',
-      rol: 'admin'
+      role: 'admin'
     },
     {
       userName: 'Nicolas',
       email: 'nico123@gmail.com',
       password: 'nicolas123',
-      rol: 'user'
+      role: 'user'
     },
     {
       userName: 'Vito',
       email: 'vito123@gmail.com',
       password: 'vito123',
-      rol: 'user'
+      role: 'user'
     },
     {
       userName: 'Emilia',
       email: 'emilia123@gmail.com',
       password: 'emilia123',
-      rol: 'user'
+      role: 'user'
     },
     {
       userName: 'Marcela',
       email: 'marcela123@gmail.com',
       password: 'marcela123',
-      rol: 'user'
+      role: 'user'
     }
   ];
   

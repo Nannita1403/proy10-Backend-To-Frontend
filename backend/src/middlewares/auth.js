@@ -1,15 +1,20 @@
-const Event = require("../api/models/events");
 const User = require("../api/models/user");
 const { verificarLlave } = require("../utils/jwt");
 
 const isAuth = async (req,res,next) => {
     try { 
         const token = req.headers.authorization;
-        const parseToken = token.replace("Beare ", "");
+        if (!token) {
+            return res.status(404).json('Unauthorized');
+          }
 
+        const parseToken = token.replace("Beare ", "");
         const {id} = verificarLlave(parseToken);
+
         const user = await User.findById(id);
-        user.password = null;  req.user = user; next();
+        user.password = null;
+        req.user = user;
+        next();
     } catch (error) {
         return res.status(400).json("No estas autorizado para esta acción");
     }
@@ -23,7 +28,7 @@ try {
     const {id} = verificarLlave(parseToken);
     const user = await User.findById(id);
 
-    if(user.rol === "admin") {
+    if(user.role === "admin") {
         user.password = null;
         req.user = user;
         next();
@@ -31,7 +36,7 @@ try {
         return res.status(400).json("No eres Admin")
     }
 } catch (error) {
-    return res.status(400).json("No estás autorizado", error);
+    return res.status(400).json("No estás autorizado");
 }
 }
 
