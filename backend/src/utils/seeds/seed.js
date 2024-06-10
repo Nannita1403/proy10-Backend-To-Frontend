@@ -1,9 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const User = require('../api/models/user');
-const Event = require('../api/models/events');
-const Artist = require('../api/models/artists');
+const User = require('../../api/models/user');
+const Event = require('../../api/models/events');
+const Artist = require('../../api/models/artists');
 const springEvents = require('./eventSeed');
 const registeredUsers = require('./userSeed');
 const artistEvents = require('./artistSeed');

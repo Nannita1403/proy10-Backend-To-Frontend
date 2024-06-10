@@ -37,14 +37,14 @@ try {
 
 const isOrganizer = async (req,res,next) =>{
 try {
-    req.user.isOrganizer = false;
+    /*req.user.isOrganizer = false;
     const eventId = req.params.id;
     const event = await Event.findById(eventId).populate("organizer");
     const organizerId = event.organizer.id;
     if (req.user.id === organizerId){
         req.user.isOrganizer = true;
         }
-    next();
+    next();*/
 } catch (error) {
     next(error);}
 };
