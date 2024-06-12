@@ -1,0 +1,27 @@
+#hero {
+    margin-top: 0;
+    align-items: flex-start;
+    background-position: center;
+    background-size: cover;
+    padding: var(--spacing-l);
+    min-height: 40svh;
+  }
+  
+  #hero div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding: var(--spacing-l);
+    gap: var(--spacing-m);
+    background-color: var(--color-dark-1);
+    color: var(--color-light-1);
+    width: 40%;
+    height: 100%;
+  }
+  
+  @media screen and (max-width: 800px) {
+    #hero div {
+      width: 100%;
+    }
+  }

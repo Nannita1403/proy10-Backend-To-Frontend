@@ -1,0 +1,18 @@
+#create-event input:valid {
+    border-color: var(--color-light-1);
+  }
+  
+  #create-event input:focus {
+    border-color: var(--color-accent-1);
+  }
+  
+  #create-event button {
+    transition: all 200ms linear;
+    letter-spacing: 1px;
+    box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
+    font-weight: 600;
+  }
+  
+  input[type='date']::-webkit-calendar-picker-indicator {
+    color-scheme: dark;
+  }

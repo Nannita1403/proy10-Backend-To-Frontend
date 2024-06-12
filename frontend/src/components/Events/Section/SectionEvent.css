@@ -1,0 +1,46 @@
+.events {
+    display: block;
+    margin-top: var(--spacing-l);
+    padding: var(--spacing-s);
+    width: 100%;
+  }
+  
+  .events > div {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .events > div.events-container {
+    justify-content: flex-start;
+    gap: var(--spacing-l);
+    padding: var(--spacing-l);
+    overflow-x: scroll;
+  
+  }
+  .events .loader {
+    background: transparent;
+    height: 70px;
+    width:70px;
+    display: flex;
+    min-height: 200px;
+  }
+  /* Scrollbar Styles */
+  /* width */
+  .events > div.events-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  /* Track */
+  .events > div.events-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .events > div.events-container::-webkit-scrollbar-thumb {
+    background: var(--color-dark-1);
+  }
+  
+  /* Handle on hover */
+  .events > div.events-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-dark-2);
+  }

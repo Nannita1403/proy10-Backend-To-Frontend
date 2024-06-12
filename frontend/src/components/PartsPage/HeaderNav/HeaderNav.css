@@ -1,0 +1,61 @@
+header.flex-container {
+    width: 100%;
+    justify-content: space-between;
+    padding: var(--spacing-m);
+    /* height: 5vh; */
+  }
+  
+  #log-link {
+    position: relative;
+  }
+  #menu-login {
+    height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    background-color: var(--color-light-2);
+    transition: all 0.2s ease-in-out;
+  }
+  #menu-login a {
+    padding: var(--spacing-s);
+    transition: all 0.3s ease-in-out;
+  }
+  #menu-login a:hover {
+    background-color: var(--color-accent-2);
+    padding: var(--spacing-s);
+  }
+  
+  #log-link:hover #menu-login {
+    height: 100px;
+  }
+  
+  header li {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  header li > a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    border-bottom: 5px solid var(--color-accent-1);
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    pointer-events: none;
+  }
+  
+  header li > a:hover::before {
+    width: 100%;
+    left: 0;
+  }
+  header li.current-location > a::before {
+    border-bottom: 5px solid var(--color-accent-1);
+    left: 0;
+    width: 100%;
+  }

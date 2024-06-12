@@ -1,0 +1,50 @@
+form.user-form {
+    background-color: var(--color-dark-1);
+    border-radius: var(--border-radius-l);
+    height: 500px;
+    padding: var(--spacing-m);
+    width: 320px;
+  }
+  
+  .user-form h2 {
+    color: var(--color-light-1);
+    flex-basis: 100%;
+    text-align: center;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .input {
+    border: solid 1.5px var(--color-light-2);
+    border-radius: var(--border-radius-l);
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--color-light-2);
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .iLabel {
+    position: absolute;
+    left: 15px;
+    color: var(--color-mid);
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .input:focus,
+  input:valid {
+    outline: none;
+    border: 1.5px solid var(--color-accent-1);
+  }
+  
+  .input:focus ~ label,
+  input:valid ~ label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: var(--color-dark-1);
+    padding: 0 0.2em;
+    color: var(--color-accent-1);
+  }
