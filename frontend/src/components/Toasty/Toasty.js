@@ -1,7 +1,7 @@
 import { ToastContainer, toast } from 'react-toastify';
 
 
-    export const notify = () => toast("Wow so easy !");
+    export const notify = (text,background) => toast("Wow so easy !");
 
     return (
       <div>
@@ -10,4 +10,3 @@ import { ToastContainer, toast } from 'react-toastify';
       </div>
     );
   
-        

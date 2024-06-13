@@ -1,7 +1,7 @@
 import './EventsSection.css';
-import { dateComparator, sortByDate } from '../../Utils/dateComparator';
-import { EventCard } from '../EventCard/EventCard';
-import { apiRequest } from '../../Utils/apiRequest';
+import { dateComparator, sortByDate } from '../../../Utils/datesRequest';
+import { EventCard } from '../Card/CardEvent';
+import { apiRequest } from '../../../Utils/ApiRequest';
 
 export const EventsSection = ({ title, eventTiming }) => {
   const eventSection = document.createElement('section');
@@ -19,7 +19,7 @@ export const EventsSection = ({ title, eventTiming }) => {
 };
 
 export const listOfEvents = async (parentNode, eventTiming) => {
-  const res = await apiRequest({ method: 'get', endpoint: 'events' });
+  const res = await apiRequest ({ method: 'get', endpoint: 'events' });
   const listOfEvents = await res.json();
   parentNode.innerHTML = '';
   sortByDate(listOfEvents);

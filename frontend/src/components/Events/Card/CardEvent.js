@@ -1,5 +1,5 @@
-import { DeleteEventButton } from '../DeleteEventButton/DeleteEventButton';
-import { EventAssistanceButton } from '../EventAssistanceButton/EventAssistanceButton';
+import { EventAssistanceButton } from '../AssistanceButton/AssistanceButton';
+import { DeleteEventButton } from '../DeleteButton/DeleteButton';
 import './EventCard.css';
 
 export const EventCard = eventObject => {
