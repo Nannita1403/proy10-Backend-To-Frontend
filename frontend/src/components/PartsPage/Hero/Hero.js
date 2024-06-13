@@ -1,5 +1,5 @@
-import { Register } from '../../Pages/Register/Register';
-import { NewEventForm } from '../NewEventForm/NewEventForm';
+import { Register } from '../../../pages/Events/Events';
+import { NewEventForm } from '../../Forms/EventForm/EventForm';
 import './Hero.css';
 
 export const heroData = {

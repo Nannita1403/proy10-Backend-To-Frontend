@@ -1,4 +1,5 @@
-import { mainRoute } from '../Data/mainRoutes';
+
+import { mainRoute } from "../Data/Routes";
 
 export const apiRequest = async ({ endpoint, id = '', method, body }) => {
   const token = localStorage.getItem('token');

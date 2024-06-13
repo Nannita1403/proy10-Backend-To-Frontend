@@ -2,10 +2,10 @@ import "./Login.css";
 import { Header } from "../../components/PartsPage/HeaderNav/HeaderNav";
 //import { showToast } from '../../Components/Toast/Toast';
 import { apiRequest } from "../../Utils/ApiRequest";
-//import { Home } from "../Home/Home";
 import { loginForm } from "../../Data/Formularios";
 import { UserForm } from "../../components/Forms/UserForm/UserForm";
-import { Home } from "../Home copy/home";
+import { Home } from "../Home/Home";
+
 
 
 const loginLayout = () => {

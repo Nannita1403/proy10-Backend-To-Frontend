@@ -1,6 +1,7 @@
-import './EventAssistanceButton.css';
-import { showToast } from '../Toast/Toast';
-import { apiRequest } from '../../Utils/apiRequest';
+import { apiRequest } from '../../../Utils/ApiRequest';
+import './AssistanceButton.css';
+//import { showToast } from '../Toast/Toast';
+
 
 export const EventAssistanceButton = (buttonContainer, eventObject) => {
   //Si el usuario está identificado, verá un botón para manejar su asistencia a eventos

@@ -1,4 +1,4 @@
-import './ProfileIcon.css';
+import './ImgProfile.css';
 
 export const profileIcon = imgSrc => {
   return `

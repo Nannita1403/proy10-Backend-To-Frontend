@@ -1,10 +1,11 @@
-import { createEventForm } from '../../Data/Forms';
+import './EventForm.css';
+//import { showToast } from '../Toast/Toast';
+//import { Modal } from '../Modal/Modal';
+
+import { createEventForm } from '../../../Data/Formularios';
 import { UserForm } from '../UserForm/UserForm';
-import './NewEventForm.css';
-import { showToast } from '../Toast/Toast';
-import { listOfEvents } from '../EventsSection/EventsSection';
-import { Modal } from '../Modal/Modal';
-import { apiRequest } from '../../Utils/apiRequest';
+import { listOfEvents } from '../../Events/Section/SectionEvent';
+import { apiRequest } from '../../../Utils/ApiRequest';
 
 const postEvent = async e => {
   e.preventDefault();

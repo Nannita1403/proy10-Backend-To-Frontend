@@ -1,4 +1,4 @@
-import './EventsSection.css';
+import './SectionEvent.css';
 import { dateComparator, sortByDate } from '../../../Utils/datesRequest';
 import { EventCard } from '../Card/CardEvent';
 import { apiRequest } from '../../../Utils/ApiRequest';

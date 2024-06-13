@@ -1,6 +1,6 @@
 import { EventAssistanceButton } from '../AssistanceButton/AssistanceButton';
 import { DeleteEventButton } from '../DeleteButton/DeleteButton';
-import './EventCard.css';
+import './CardEvent.css';
 
 export const EventCard = eventObject => {
   const eventContainer = document.createElement('article');
