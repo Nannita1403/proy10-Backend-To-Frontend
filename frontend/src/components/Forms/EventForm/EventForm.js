@@ -1,11 +1,11 @@
 import './EventForm.css';
-//import { showToast } from '../Toast/Toast';
-//import { Modal } from '../Modal/Modal';
 
 import { createEventForm } from '../../../Data/Formularios';
 import { UserForm } from '../UserForm/UserForm';
 import { listOfEvents } from '../../Events/Section/SectionEvent';
 import { apiRequest } from '../../../Utils/ApiRequest';
+import { showToast } from '../../Toasty/Toasty';
+import { Modal } from '../../PartsPage/Modal/Modal';
 
 const postEvent = async e => {
   e.preventDefault();

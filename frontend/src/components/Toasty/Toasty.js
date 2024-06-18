@@ -1,12 +1,15 @@
-import { ToastContainer, toast } from 'react-toastify';
+import Toastify from 'toastify-js';
 
-
-    export const notify = (text,background) => toast("Wow so easy !");
-
-    return (
-      <div>
-        <button onClick={notify}>Notify !</button>
-        <ToastContainer />
-      </div>
-    );
-  
+export const showToast = (text, background) => {
+  Toastify({
+    text,
+    duration: 3000,
+    close: true,
+    gravity: 'top',
+    position: 'center',
+    stopOnFocus: true,
+    style: {
+      background
+    }
+  }).showToast();
+};

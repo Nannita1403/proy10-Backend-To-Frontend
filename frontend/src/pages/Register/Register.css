@@ -1,0 +1,16 @@
+#register {
+    background-image: url('./public/backEvent1.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: var(--spacing-m);
+    color: var(--color-light-1);
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  #register a {
+    color: var(--color-accent-2);
+    font-weight: bold;
+  }

@@ -1,0 +1,17 @@
+#create-event-btn {
+    margin: 0 var(--spacing-l);
+    padding: var(--spacing-l);
+  }
+  
+  p.aviso {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--color-dark-1);
+    padding: var(--spacing-m);
+  }
+  
+  p.aviso a {
+    background-color: var(--color-accent-1
+    );
+  }

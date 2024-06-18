@@ -1,10 +1,10 @@
-import { Register } from '../../../pages/Events/Events';
+import { Register } from '../../../pages/Register/Register';
 import { NewEventForm } from '../../Forms/EventForm/EventForm';
 import './Hero.css';
 
 export const heroData = {
-  text: 'Bienvenido a nuestro espacio dedicado a los juegos de mesa: donde la diversión y la estrategia se encuentran. Somos el lugar perfecto para los amantes de los dados, las cartas y los tableros. Nuestros eventos son más que partidas; son experiencias compartidas, risas y momentos inolvidables. Únete a nosotros para sumergirte en un mundo de estrategia, creatividad y camaradería. <br> ¡Ven a jugar y crea recuerdos inolvidables con nosotros!',
-  image: '/assets/boardgame03.avif'
+  text: 'Bienvenido a nuestro espacio dedicado a los mejores EVENTOS <br> Comprá tus tickets de forma segura y coleccionalos!. <br> Mantenete actualizado de las próximas fechas & rumores. <br> Descubrí nuevos artistas y enterate de todas las novedades. <br> Conectate con los que escuchan la misma música que vos.',
+  image: './public/backEventHome.jpeg'
 };
 const heroSection = ({ text, image }) => {
   return `

@@ -1,4 +1,4 @@
-:root {
+/*:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -94,7 +94,122 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
+*/
 
 /*Empiezan nuestos estilos*/
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+  font-family: Montserrat, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /*Colors*/
+  --color-light-1: #f5f7fa;
+  --color-light-2: #dedee1;
+  --color-dark-1: rgb(30 12 61);
+  --color-dark-2: rgb(0, 0, 0);
+  --color-mid: #84828f;
+  --color-accent-1: rgb(238 85 54);
+  --color-accent-2: rgb(255 245 140);
+
+  /* Spacings */
+  --spacing-xl: 50px;
+  --spacing-l: 30px;
+  --spacing-m: 20px;
+  --spacing-s: 10px;
+  --spacing-xs: 5px;
+
+  /* Border radius */
+  --border-radius-l: 15px;
+  --border-radius-s: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--color-light-1);
+  width: 100%;
+  min-height: 100svh;
+}
+
+#app {
+  min-height: 10svh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+a {
+  color: var(--color-accent-2);
+}
+button {
+  position: relative;
+  display: inline-block;
+  padding: var(--spacing-s) var(--spacing-m);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-accent-2);
+  background-color: var(--color-accent-1);
+  border: 2px solid #000;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: Montserrat;
+}
+button:hover {
+  background-color: var(--color-light-1);
+  color: var(--color-dark-1);
+  /*border: 2px solid var(--color-accent-1);*/
+}
+button:active {
+  background-color: var(--color-accent-2);
+  box-shadow: none;
+  transform: translateY(4px);
+}
+button.round {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 7px;
+}
+
+#meeple-logo {
+  height: 50px;
+  width: 50px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-l);
+}

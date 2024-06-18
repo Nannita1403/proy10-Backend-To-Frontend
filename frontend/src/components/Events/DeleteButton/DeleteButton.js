@@ -1,7 +1,7 @@
 import './DeleteButton.css';
-//import { showToast } from '../Toast/Toast';
 import { apiRequest } from '../../../Utils/ApiRequest';
 import { Modal } from '../../PartsPage/Modal/Modal';
+import { showToast } from '../../Toasty/Toasty';
 
 export const DeleteEventButton = (buttonContainer, eventObject) => {
   const user = JSON.parse(localStorage.getItem('user'));

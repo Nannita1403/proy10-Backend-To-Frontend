@@ -7,7 +7,7 @@ export const Home = async () => {
   cleanHeader();
 
   const main = document.querySelector('main');
-  Hero(main, heroData);
+  Hero (main, heroData);
 
   const eventSection = EventsSection({
     title: 'Próximos Eventos',

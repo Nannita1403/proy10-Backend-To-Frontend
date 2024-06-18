@@ -22,7 +22,7 @@ const getUserbyID = async (req,res,next) => {
 };
 const register = async (req,res,next) => {
     try {
-        const userDuplicated = await User.findOne({ userName: req.body.userName });
+        const userDuplicated = await User.findOne({ username: req.body.username });
         if (userDuplicated) {
           return res.status(400).json("Usuario ya existente");
         }
@@ -32,7 +32,7 @@ const register = async (req,res,next) => {
         }
         
         const newUser = new User({
-            userName: req.body.userName,
+            username: req.body.username,
             password: req.body.password,
             email:req.body.email,
             role: "user"
@@ -47,8 +47,8 @@ const register = async (req,res,next) => {
 
 const login = async (req,res,next) => {
     try {
-        const { userName, password } = req.body;
-        const user = await User.findOne({userName});
+        const { username, password } = req.body;
+        const user = await User.findOne({username});
         if (!user) {
             return res.status(400).json("Usuario o contraseña incorrectos");
         }
@@ -88,12 +88,16 @@ const updateUser = async (req,res,next) => {
 const deleteUser = async (req,res,next) => {
     try {
         const {id} = req.params;
+        if (req.user.id === id || req.user.role === "admin") {
         const userDeleted = await User.findByIdAndDelete(id);
         userDeleted.profilePic.forEach((url)=>{
             deleteFromCloudinary(url);
         });
         
         return res.status(200).json({message:"User Eliminado", event: userDeleted});
+    } else {
+        return res.status(401).json("No estas autorizado para esta acción")
+    }
     } catch (error) {
         return res.status(400).json("error en la eliminación del Juego");
     }

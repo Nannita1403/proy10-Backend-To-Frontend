@@ -1,6 +1,6 @@
 import { apiRequest } from '../../../Utils/ApiRequest';
+import { showToast } from '../../Toasty/Toasty';
 import './AssistanceButton.css';
-//import { showToast } from '../Toast/Toast';
 
 
 export const EventAssistanceButton = (buttonContainer, eventObject) => {

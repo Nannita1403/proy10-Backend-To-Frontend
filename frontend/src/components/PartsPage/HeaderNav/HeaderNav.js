@@ -1,6 +1,5 @@
 import { Events } from '../../../pages/Events/Events';
 import { Home } from '../../../pages/Home/Home';
-
 import { Login } from '../../../pages/Login/Login';
 import { Register } from '../../../pages/Register/Register';
 import { profileIcon } from '../ImgProfile/ImgProfile';
@@ -40,7 +39,7 @@ const loginMenuLayout = () => {
 export const Header = () => {
   const header = document.querySelector('header nav');
   header.innerHTML = navLayout();
-  const homeLink = document.querySelector('#meeple-logo');
+  const homeLink = document.querySelector('#bombo-logo');
   homeLink.addEventListener('click', Home);
   const eventsLink = document.querySelector('#events-link');
   eventsLink.addEventListener('click', Events);
