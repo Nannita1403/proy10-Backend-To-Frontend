@@ -15,11 +15,12 @@
     gap: var(--spacing-m);
     background-color: var(--color-accent-2);
     color: var(--color-dark);
-    width: 50%;
+    /*width: 50%;*/
     height: 100%;
+    text-align: center;
   }
   
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 600px) {
     #hero div {
       width: 100%;
     }

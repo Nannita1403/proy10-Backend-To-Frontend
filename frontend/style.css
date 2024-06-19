@@ -163,7 +163,7 @@ section {
   place-items: center;
 }
 a {
-  color: var(--color-accent-2);
+  color: var(--color-accent-1);
 }
 button {
   position: relative;
@@ -173,9 +173,11 @@ button {
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  color: var(--color-accent-2);
-  background-color: var(--color-accent-1);
-  border: 2px solid #000;
+  color: var(--color-dark-1);
+  background: linear-gradient(to top, #ff5f6d, #ffc371);
+  /*background-color: var(--color-accent-1);*/
+  border: 2px solid var(--color-accent-2);
+ 
   border-radius: 10px;
   transition: all 0.3s ease;
   cursor: pointer;

@@ -1,5 +1,5 @@
 form.user-form {
-    background-color: var(--color-dark-1);
+    background-image: url('./public/pattern.png');
     border-radius: var(--border-radius-l);
     height: 500px;
     padding: var(--spacing-m);
@@ -7,7 +7,8 @@ form.user-form {
   }
   
   .user-form h2 {
-    color: var(--color-light-1);
+    color: var(--color-accent-1);
+    font-size: 2rem;
     flex-basis: 100%;
     text-align: center;
   }
@@ -17,12 +18,12 @@ form.user-form {
   }
   
   .input {
-    border: solid 1.5px var(--color-light-2);
+    border: solid 1.5px var(--color-dark-2);
     border-radius: var(--border-radius-l);
-    background: none;
+    background: white;
     padding: 1rem;
     font-size: 1rem;
-    color: var(--color-light-2);
+    color: var(--color-dark-2);
     transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   

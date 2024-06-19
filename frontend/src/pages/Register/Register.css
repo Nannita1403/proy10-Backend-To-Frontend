@@ -5,12 +5,15 @@
     background-size: cover;
     margin: 0;
     padding: var(--spacing-m);
-    color: var(--color-light-1);
+    color: var(--color-dark-1);
     flex-grow: 1;
     justify-content: center;
   }
   
   #register a {
-    color: var(--color-accent-2);
+    color: var(--color-accent-1);
+    background-color: var(--color-accent-2);
     font-weight: bold;
+    font-size: 20px;
+
   }

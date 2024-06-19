@@ -15,7 +15,7 @@ const registerLayout = () => {
   UserForm(registerSection, 'Register', registerForm);
   //Agrego un link a la sección de registro
   const isRegisteredQuery = document.createElement('p');
-  isRegisteredQuery.innerHTML = `¿Ya estás registrado? <a href=#>Login</a>`;
+  isRegisteredQuery.innerHTML = ` ¿Ya estás registrado? <a href=#>Login</a>`;
   const title = registerSection.querySelector('h2');
   title.insertAdjacentElement('afterend', isRegisteredQuery);
   isRegisteredQuery.querySelector('a').addEventListener('click', Login);
