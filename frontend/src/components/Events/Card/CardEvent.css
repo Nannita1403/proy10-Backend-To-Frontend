@@ -24,8 +24,8 @@
   .events-container > article > div > img {
     width: 250px;
     height: 200px;
-    object-fit: cover;
-    object-position: center top;
+    object-fit: fill;
+    object-position: center;
   }
   .events-container > article > div.event-info {
     padding: var(--spacing-m);
