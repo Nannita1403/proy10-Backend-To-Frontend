@@ -34,7 +34,7 @@ export const Login = () => {
 
 export const loginRequest = async (username, password) => {
   const res = await apiRequest({
-    endpoint: 'user/login',
+    endpoint: 'users/login',
     method: 'POST',
     body: { username, password },
   });
