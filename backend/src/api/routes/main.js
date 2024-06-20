@@ -5,7 +5,7 @@ const userRouter = require("./user");
 const mainRouter = require ("express").Router();
 
 mainRouter.use("/user", userRouter);
-mainRouter.use("/event", eventRouter);
-mainRouter.use("/artist", artistRouter);
+mainRouter.use("/events", eventRouter);
+mainRouter.use("/artists", artistRouter);
 
 module.exports =mainRouter;
