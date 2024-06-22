@@ -20,7 +20,7 @@ export const UserForm = (parentElement, formName, fields) => {
     label.htmlFor = field.id;
     label.textContent = field.name;
     if (field.type === 'password') {
-      input.minLength = 8;
+      input.minLength = 6;
     }
     inputContainer.append(input, label);
     form.append(inputContainer);
