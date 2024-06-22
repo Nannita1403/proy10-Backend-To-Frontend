@@ -46,6 +46,6 @@ export const loginRequest = async (username, password) => {
     Header();
     Home();
   } else {
-    showToast('Nombre de usuario o contraseña incorrecto', 'red');
+    showToast('Nombre de usuario o contraseña incorrecto', 'orange');
   }
 };
