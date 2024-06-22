@@ -10,15 +10,15 @@ import { Modal } from '../../PartsPage/Modal/Modal';
 const postEvent = async e => {
   e.preventDefault();
 
-  const gameName = document.querySelector('#game').value;
-  const dataList = document.querySelector('#list-of-games');
+  const artistName = document.querySelector('#artist').value;
+  const dataList = document.querySelector('#artistEvents');
 
   const body = {
     name: document.querySelector('#name').value,
     date: document.querySelector('#date').value,
     location: document.querySelector('#location').value,
-    game: dataList
-      .querySelector(`[value="${gameName}"]`)
+    artist: dataList
+      .querySelector(`[value="${artistName}"]`)
       .getAttribute('data-id'),
   };
 
@@ -55,26 +55,26 @@ export const NewEventForm = () => {
         alert('La fecha del evento debe ser futura');
       }
     });
-  const gameInputContainer = document.createElement('div');
-  gameInputContainer.classList.add('input-container');
-  gameInputContainer.innerHTML = `  <label class="iLabel" for="game">Juego</label>
-  <input class="input" list="list-of-games" id="game" name="game">
-  <datalist id="list-of-games"></datalist>`;
+  const artistInputContainer = document.createElement('div');
+  artistInputContainer.classList.add('input-container');
+  artistInputContainer.innerHTML = `  <label class="iLabel" for="artists">Artist</label>
+  <input class="input" list="artistEvents" id="artists" name="artist">
+  <datalist id="artistEvents"></datalist>`;
 
   document.body.append(eventFormContainer);
   document
     .querySelector('#create-event button')
-    .insertAdjacentElement('beforebegin', gameInputContainer);
+    .insertAdjacentElement('beforebegin', artistInputContainer);
 
-  const datalistOfGames = document.querySelector('#list-of-games');
-  apiRequest({ method: 'get', endpoint: 'boardgames' })
+  const datalistOfArtist = document.querySelector('#artistEvents');
+  apiRequest({ method: 'get', endpoint: 'artists' })
     .then(res => res.json())
-    .then(listOfGames => {
-      for (const game of listOfGames) {
+    .then(artistEvents => {
+      for (const artist of artistEvents) {
         const option = document.createElement('option');
-        option.value = game.title;
-        option.setAttribute('data-id', game._id);
-        datalistOfGames.append(option);
+        option.value = artist.name;
+        option.setAttribute('data-id', artist._id);
+        datalistOfArtist.append(option);
       }
     });
   document

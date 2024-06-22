@@ -12,7 +12,7 @@ export const apiRequest = async ({ endpoint, id = '', method, body }) => {
     body: JSON.stringify(body),
   };
 
-  const res = await fetch(`${mainRoute}/${endpoint}`, options);
+  const res = await fetch(`${mainRoute}/${endpoint}/${id}`, options);
   return res;
 
   //  const res = await fetch(`${mainRoute}/${endpoint}/${id}`, options);
