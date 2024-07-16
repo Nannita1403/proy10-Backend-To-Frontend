@@ -1,35 +1,35 @@
 const registeredUsers = [
     {
-      userName: 'admin',
+      username: 'admin',
       email: 'admin@gmail.com',
       password: 'admin123',
       role: 'admin'
       },{
-      userName: 'Nanni',
+      username: 'Nanni',
       email: 'nanni123@gmail.com',
       password: 'nanni123',
       role: 'admin'
     },
     {
-      userName: 'Nicolas',
+      username: 'Nicolas',
       email: 'nico123@gmail.com',
       password: 'nicolas123',
       role: 'user'
     },
     {
-      userName: 'Vito',
+      username: 'Vito',
       email: 'vito123@gmail.com',
       password: 'vito123',
       role: 'user'
     },
     {
-      userName: 'Emilia',
+      username: 'Emilia',
       email: 'emilia123@gmail.com',
       password: 'emilia123',
       role: 'user'
     },
     {
-      userName: 'Marcela',
+      username: 'Marcela',
       email: 'marcela123@gmail.com',
       password: 'marcela123',
       role: 'user'
