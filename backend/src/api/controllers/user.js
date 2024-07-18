@@ -23,14 +23,15 @@ const getUserbyID = async (req,res,next) => {
 const register = async (req,res,next) => {
     const {emal}=req.body
      try {
-        const emailDuplicated = await User.findOne({ email });
+        const emailDuplicated = await User.findOne({ email: req.body.email });
         if (emailDuplicated) {
           return res.status(400).json("Usuario ya existente cone se correo");
         }
         
-        const newUser = new User({...req.body});
-        await newUser.save();
-        return res.status(201).json(newUser);
+        const newUser = new User({...req.body });
+        
+        const savedUser = await newUser.save();
+        return res.status(201).json(savedUser);
     } catch (error) {
         return res.status(400).json("Error en la creación del User");
     }
