@@ -22,7 +22,7 @@ const loginLayout = () => {
 
 const loginSubmit = async e => {
   e.preventDefault();
-  const username = document.querySelector('#userName').value;
+  const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
   loginRequest(username, password);
 };
