@@ -21,25 +21,16 @@ const getUserbyID = async (req,res,next) => {
     }
 };
 const register = async (req,res,next) => {
-    try {
-        const userDuplicated = await User.findOne({ username: req.body.username });
-        if (userDuplicated) {
-          return res.status(400).json("Usuario ya existente");
-        }
-        const emailDuplicated = await User.findOne({ email: req.body.email });
+    const {emal}=req.body
+     try {
+        const emailDuplicated = await User.findOne({ email });
         if (emailDuplicated) {
           return res.status(400).json("Usuario ya existente cone se correo");
         }
         
-        const newUser = new User({
-            username: req.body.username,
-            password: req.body.password,
-            email:req.body.email,
-            role: "user"
-        });
-        
-        const savedUser = await newUser.save();
-        return res.status(201).json(savedUser);
+        const newUser = new User({...req.body});
+        await newUser.save();
+        return res.status(201).json(newUser);
     } catch (error) {
         return res.status(400).json("Error en la creación del User");
     }
