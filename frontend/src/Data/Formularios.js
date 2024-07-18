@@ -1,10 +1,10 @@
 export const registerForm = [
-    { id: 'userName', name: 'Usuario', type: 'text' },
+    { id: 'username', name: 'Usuario', type: 'text' },
     { id: 'email', name: 'Email', type: 'email' },
     { id: 'password', name: 'Contraseña', type: 'password' }
   ];
   export const loginForm = [
-    { id: 'userName', name: 'Usuario', type: 'text' },
+    { id: 'username', name: 'Usuario', type: 'text' },
     { id: 'password', name: 'Contraseña', type: 'password' }
   ];
   
