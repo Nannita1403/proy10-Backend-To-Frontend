@@ -31,7 +31,7 @@ const registerSubmit = async e => {
   const email = document.querySelector('#email').value;
   //Los envio a la BBDD con un post request
   const response = await apiRequest({
-    endpoint: 'users/register',
+    endpoint: '/register',
     method: 'POST',
     body: { username, email, password },
   });
