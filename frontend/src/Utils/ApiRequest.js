@@ -1,7 +1,7 @@
 
 import { mainRoute } from "../Data/Routes";
 
-export const apiRequest = async ({ endpoint/*, id */= '', method, body }) => {
+export const apiRequest = async ({ endpoint, id = '', method, body }) => {
   const token = localStorage.getItem('token');
   const options = {
     headers: {
@@ -12,7 +12,7 @@ export const apiRequest = async ({ endpoint/*, id */= '', method, body }) => {
     body: JSON.stringify(body),
   };
 
-  const res = await fetch(`${mainRoute}/${endpoint}`, options);
+  const res = await fetch(`${mainRoute}/${endpoint}/${id}`, options);
   return res;
 
   //  const res = await fetch(`${mainRoute}/${endpoint}/${id}`, options);
