@@ -26,7 +26,7 @@ const registerLayout = () => {
 const registerSubmit = async e => {
   e.preventDefault();
   //Recojo los datos del formulario
-  const username = document.querySelector('#userName').value;
+  const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
   const email = document.querySelector('#email').value;
   //Los envio a la BBDD con un post request
