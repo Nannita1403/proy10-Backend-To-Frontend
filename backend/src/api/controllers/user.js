@@ -8,7 +8,7 @@ const getUsers = async (req,res,next) => {
         const users = await User.find();
         return res.status(200).json(users);
     } catch (error) {
-        return res.status(400).json("error en la recoleccion de Usuarios");
+        return res.status(400).json("Error al recolectar los Usuarios");
     }
 };
 const getUserbyID = async (req,res,next) => {
@@ -17,7 +17,7 @@ const getUserbyID = async (req,res,next) => {
         const user= await User.findById(id);
         return res.status(200).json(user);
     } catch (error) {
-        return res.status(400).json("error en encontar el User");
+        return res.status(400).json("Error al encontar tu User");
     }
 };
 const register = async (req,res,next) => {
@@ -25,10 +25,10 @@ const register = async (req,res,next) => {
      try {
         const emailDuplicated = await User.findOne({ email: req.body.email });
         if (emailDuplicated) {
-          return res.status(400).json("Usuario ya existente cone se correo");
+          return res.status(400).json("Usuario ya existente con ese correo");
         }
         
-        const newUser = new User({...req.body });
+        const newUser = new User(...req.body );
         
         const savedUser = await newUser.save();
         return res.status(201).json(savedUser);
