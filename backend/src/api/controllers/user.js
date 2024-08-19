@@ -21,7 +21,7 @@ const getUserbyID = async (req,res,next) => {
     }
 };
 const register = async (req,res,next) => {
-    const {emal}=req.body
+    const {email}=req.body
      try {
         const emailDuplicated = await User.findOne({ email: req.body.email });
         if (emailDuplicated) {
