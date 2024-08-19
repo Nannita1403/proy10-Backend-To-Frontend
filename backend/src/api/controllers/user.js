@@ -17,40 +17,45 @@ const getUserbyID = async (req,res,next) => {
         const user= await User.findById(id);
         return res.status(200).json(user);
     } catch (error) {
-        return res.status(400).json("Error al encontar tu User");
+        return res.status(400).json(`Error al encontar tu User: ${id}`);
     }
 };
 const register = async (req,res,next) => {
-    const {email}=req.body
      try {
         const emailDuplicated = await User.findOne({ email: req.body.email });
         if (emailDuplicated) {
-          return res.status(400).json("Usuario ya existente con ese correo");
+          return res.status(400).json("Usuario ya existente con ese email");
         }
-        
-        const newUser = new User(...req.body );
-        
+        const nameDuplicated = await User.findOne({ email: req.body.username });
+        if (nameDuplicated) {
+          return res.status(400).json("Usuario ya existente");
+        }
+        const {username, password, email} = req.body;
+        const newUser = new User({
+            username,
+            password,
+            email
+        });
         const savedUser = await newUser.save();
         return res.status(201).json(savedUser);
     } catch (error) {
-        return res.status(400).json("Error en la creación del User");
+        return res.status(400).json("Error en la creación de tu User");
     }
 };
-
 const login = async (req,res,next) => {
     try {
-        const { username, password } = req.body;
-        const user = await User.findOne({username});
-        if (!user) {
-            return res.status(400).json("Usuario o contraseña incorrectos");
-        }
-    
-        if (bcrypt.compareSync(password, user.password)) {
+        const user = await User.findOne({username: req.body.username});
+        if (user) {
+            if (bcrypt.compareSync(req.body.password, user.password)) {
             const token = generarLlave(user._id);
-            return res.status(200).json({ token, user })
+            return res.status(200).json({ user, token });
         } else{
         return res.status(400).json("Usuario o contraseña incorrectos");
         }
+        }else{
+       return res.status(400).json("Usuario o contraseña incorrectos");
+    }
+
     } catch (error) {
         return res.status(400).json("Error en el Login");
     }
