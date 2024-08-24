@@ -1,5 +1,5 @@
 form.user-form {
-    background-image: url('./public/pattern.png');
+    background-image: url('/pattern.png');
     border-radius: var(--border-radius-l);
     height: 500px;
     padding: var(--spacing-m);

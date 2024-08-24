@@ -15,6 +15,4 @@ export const apiRequest = async ({ endpoint, id = '', method, body }) => {
   const res = await fetch(`${mainRoute}/${endpoint}/${id}`, options);
   return res;
 
-  //  const res = await fetch(`${mainRoute}/${endpoint}/${id}`, options);
-
 };

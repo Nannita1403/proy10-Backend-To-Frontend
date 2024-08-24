@@ -1,5 +1,5 @@
 #register {
-    background-image: url('./public/backEvent1.jpeg');
+    background-image: url('/backEvent1.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

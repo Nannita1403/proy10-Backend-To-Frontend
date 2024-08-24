@@ -4,7 +4,7 @@ import './Hero.css';
 
 export const heroData = {
   text: 'Bienvenido a nuestro espacio dedicado a los mejores EVENTOS <br> Comprá tus tickets de forma segura y coleccionalos!. <br> Mantenete actualizado de las próximas fechas & rumores. <br> Descubrí nuevos artistas y enterate de todas las novedades. <br> Conectate con los que escuchan la misma música que vos.',
-  image: './public/backEventHome.jpeg'
+  image: '/backEventHome.jpeg'
 };
 const heroSection = ({ text, image }) => {
   return `
