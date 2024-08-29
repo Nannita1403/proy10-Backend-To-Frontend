@@ -22,6 +22,9 @@ const getUserbyID = async (req,res,next) => {
 };
 const register = async (req,res,next) => {
      try {
+        const newUser = new User(req.body);
+        newUser.role = "user";
+
         const emailDuplicated = await User.findOne({ email: req.body.email });
         if (emailDuplicated) {
           return res.status(400).json("Usuario ya existente con ese email");
@@ -30,12 +33,7 @@ const register = async (req,res,next) => {
         if (nameDuplicated) {
           return res.status(400).json("Usuario ya existente");
         }
-        const {username, password, email} = req.body;
-        const newUser = new User({
-            username,
-            password,
-            email
-        });
+
         const savedUser = await newUser.save();
         return res.status(201).json(savedUser);
     } catch (error) {
@@ -45,13 +43,12 @@ const register = async (req,res,next) => {
 const login = async (req,res,next) => {
     try {
         const user = await User.findOne({username: req.body.username});
-        if (user) {
-            if (bcrypt.compareSync(req.body.password, user.password)) {
-            const token = generarLlave(user._id);
-            return res.status(200).json({ user, token });
-        } else{
-        return res.status(400).json("Usuario o contraseña incorrectos");
-        }
+        if (!user) {
+            return res.status(400).json("Usuario o contraseña incorrectos");
+        } 
+       if (bcrypt.compareSync(req.body.password, user.password)) {
+                const token = generarLlave(user._id);
+                return res.status(200).json({ user, token });
         }else{
        return res.status(400).json("Usuario o contraseña incorrectos");
     }
