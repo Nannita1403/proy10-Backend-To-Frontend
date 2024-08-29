@@ -1,7 +1,11 @@
 
 import { mainRoute } from "../Data/Routes";
 
-export const apiRequest = async ({ endpoint, id = '', method, body }) => {
+export const apiRequest = async ({ 
+  endpoint, 
+  id = '', 
+  method, 
+  body }) => {
   const token = localStorage.getItem('token');
   const options = {
     headers: {
