@@ -6,7 +6,7 @@ const isAuth = async (req,res,next) => {
         const token = req.headers.authorization.replace("Bearer ", "");
         const {id} = verificarLlave(token);
 
-        const user = await User.findById(id).populate("events");
+        const user = await User.findById(id)/*.populate("events")*/
         user.password = null;
         req.user = user;
         next();
