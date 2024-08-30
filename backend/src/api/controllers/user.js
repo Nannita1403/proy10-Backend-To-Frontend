@@ -22,7 +22,11 @@ const getUserbyID = async (req,res,next) => {
 };
 const register = async (req,res,next) => {
      try {
-        const newUser = new User(req.body);
+        const newUser = new User({
+            username : req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+        });
         newUser.role = "user";
 
         const emailDuplicated = await User.findOne({ email: req.body.email });
